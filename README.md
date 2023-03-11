@@ -4,7 +4,7 @@ A PowerShell script for searching scoop packages in your buckets using regular e
 ![An example of Search-Scoop on Windows PowerShell.](/media/example.png)
 
 ## Instalation
-Drop the `SearchScoop` folder in one of your `$env:PSModulePath`
+Run the `Install.ps1` script in your PowerShell terminal.
 
 ## Usage
 ```ps1
@@ -12,4 +12,4 @@ SearchScoop [-Package] <string> [[-SearchDescriptions] <switch>]
 ```
 
 ## Notes
-If your scoop installation folder is not in ```~/scoop```, you can set a ```SCOOP_HOME``` environment variable to that location.
+If your scoop installation folder is not in `~/scoop`, you can set a `SCOOP_HOME` environment variable to that location.

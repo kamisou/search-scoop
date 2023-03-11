@@ -12,16 +12,21 @@ function Search-Scoop {
         foreach ($app in Get-ChildItem $apps -Filter '*.json') {
             $appData = $null;
 
-            if ($app.BaseName -notmatch $Package) {
-                if (!$SearchDescriptions) {
-                    continue;
-                }
-                else {
-                    $appData = (Get-Content $app) | ConvertFrom-Json -AsHashtable;
-                    if ($appData.description -notmatch $Package) {
+            try {
+                if ($app.BaseName -notmatch $Package) {
+                    if (!$SearchDescriptions) {
                         continue;
                     }
+                    else {
+                        $appData = (Get-Content $app) | ConvertFrom-Json -AsHashtable;
+                        if ($appData.description -notmatch $Package) {
+                            continue;
+                        }
+                    }
                 }
+            } catch [System.Text.RegularExpressions.RegexParseException] {
+                Write-Host "`"$Package`" is not a valid regex pattern. Stopping..." -ForegroundColor Red;
+                return;
             }
 
             $appData ??= (Get-Content $app) | ConvertFrom-Json -AsHashtable;
