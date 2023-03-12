@@ -71,5 +71,3 @@ function Search-Scoop {
         }
     }
 }
-
-New-Alias -Name ss -Value Search-Scoop
