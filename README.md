@@ -8,7 +8,7 @@ Run the `Install.ps1` script in your PowerShell terminal.
 
 ## Usage
 ```ps1
-SearchScoop [-Package] <string> [[-SearchDescriptions] <switch>]
+Search-Scoop [[-Package] <string>] [[-Bucket] <string>] [-SearchDescriptions]
 ```
 
 ## Notes
